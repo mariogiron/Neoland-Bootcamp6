@@ -13,4 +13,8 @@ export class AppComponent {
     this.numeros = [10, 12, 3, 7];
   }
 
+  manejarCuenta($event) {
+    console.log($event);
+  }
+
 }

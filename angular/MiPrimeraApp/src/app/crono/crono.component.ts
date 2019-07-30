@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-crono',
@@ -8,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CronoComponent implements OnInit {
 
   @Input() inicio: string;
+  @Output() cuentaTerminada: EventEmitter<string>
+
   contador: number;
 
   constructor() {
     this.contador = 10;
+    this.cuentaTerminada = new EventEmitter()
     console.log('Constructor INPUT', this.inicio)
   }
 
@@ -25,6 +28,7 @@ export class CronoComponent implements OnInit {
       this.contador--;
       if (this.contador === 0) {
         clearInterval(interval);
+        this.cuentaTerminada.emit(`Ha terminado el crono cuyo inicio era ${this.inicio}`);
       }
     }, 1000);
   }

@@ -2,10 +2,11 @@
 
 <app-calculadora></app-calculadora>
 <app-saludo></app-saludo>
-<app-crono [inicio]="numeros[0]"></app-crono>
-<app-crono [inicio]="numeros[1]"></app-crono>
-<app-crono [inicio]="numeros[2]"></app-crono>
-<app-crono [inicio]="numeros[3]"></app-crono>
+
+<app-crono [inicio]="numeros[0]" (cuentaTerminada)="manejarCuenta($event)"></app-crono>
+<app-crono [inicio]="numeros[1]" (cuentaTerminada)="manejarCuenta($event)"></app-crono>
+<app-crono [inicio]="numeros[2]" (cuentaTerminada)="manejarCuenta($event)"></app-crono>
+<app-crono [inicio]="numeros[3]" (cuentaTerminada)="manejarCuenta($event)"></app-crono>
 
 <app-suma operando1="7" operando2="8"></app-suma>
 <app-suma operando1="9" operando2="2"></app-suma>

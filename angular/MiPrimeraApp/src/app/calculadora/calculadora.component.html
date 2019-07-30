@@ -1,0 +1,35 @@
+<div class="wrapper">
+    <div class="resultado">
+        {{resultado || '0'}}
+    </div>
+    <div class="botones">
+        <div class="fila">
+            <button (click)="pulsarBoton('1')">1</button>
+            <button (click)="pulsarBoton('2')">2</button>
+            <button (click)="pulsarBoton('3')">3</button>
+        </div>
+        <div class="fila">
+            <button (click)="pulsarBoton('4')">4</button>
+            <button (click)="pulsarBoton('5')">5</button>
+            <button (click)="pulsarBoton('6')">6</button>
+        </div>
+        <div class="fila">
+            <button (click)="pulsarBoton('7')">7</button>
+            <button (click)="pulsarBoton('8')">8</button>
+            <button (click)="pulsarBoton('9')">9</button>
+        </div>
+        <div class="fila uno">
+            <button (click)="pulsarBoton('0')">0</button>
+        </div>
+        <div class="fila cuatro">
+            <button (click)="pulsarBoton('+')">+</button>
+            <button (click)="pulsarBoton('-')">-</button>
+            <button (click)="pulsarBoton('*')">*</button>
+            <button (click)="pulsarBoton('/')">/</button>
+        </div>
+        <div class="fila dos">
+            <button (click)="reset()">C</button>
+            <button (click)="resolver()">=</button>
+        </div>
+    </div>
+</div>

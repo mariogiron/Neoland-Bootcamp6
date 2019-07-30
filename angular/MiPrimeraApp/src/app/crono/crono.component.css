@@ -1,0 +1,18 @@
+.wrapper {
+    background-color: rosybrown;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.numero span {
+    font-size: 100px;
+    margin-left: 50px;
+    width: 150px;
+}
+
+button {
+    border-radius: 0;
+    width: 90%;
+    margin: 5px;
+}

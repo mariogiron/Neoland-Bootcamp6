@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MiPrimeraApp": {
+    "Directivas": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/MiPrimeraApp",
+            "outputPath": "dist/Directivas",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +24,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -59,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "MiPrimeraApp:build"
+            "browserTarget": "Directivas:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "MiPrimeraApp:build:production"
+              "browserTarget": "Directivas:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MiPrimeraApp:build"
+            "browserTarget": "Directivas:build"
           }
         },
         "test": {
@@ -107,16 +106,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "MiPrimeraApp:serve"
+            "devServerTarget": "Directivas:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "MiPrimeraApp:serve:production"
+              "devServerTarget": "Directivas:serve:production"
             }
           }
         }
       }
-    }
-  },
-  "defaultProject": "MiPrimeraApp"
+    }},
+  "defaultProject": "Directivas"
 }

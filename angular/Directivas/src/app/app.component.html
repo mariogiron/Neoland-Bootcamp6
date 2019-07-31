@@ -1,0 +1,9 @@
+<app-semaforo></app-semaforo>
+
+<p [ngStyle]="estilosParrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore in expedita nam, eos
+  non rerum, dolore neque
+  deleniti, minus odit consequatur quis est fugiat enim pariatur mollitia voluptate voluptatum nihil!</p>
+
+<button (click)="cambiarColor()">Cambiar Color</button>
+<input type="text" [(ngModel)]="estilosParrafo.backgroundColor" /><br>
+<input type="range" min="12" max="200" step="1" (change)="cambiaFuente($event)" />

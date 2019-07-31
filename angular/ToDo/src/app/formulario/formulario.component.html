@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label for="">Título</label>
+    <input type="text" class="form-control" [(ngModel)]="tarea.titulo">
+</div>
+<div class="form-group">
+    <label for="">Descripción</label>
+    <input type="text" class="form-control" [(ngModel)]="tarea.descripcion">
+</div>
+<input type="button" value="Enviar" class="btn btn-block btn-primary" (click)="onSendForm()">

@@ -1,0 +1,11 @@
+<div *ngFor="let episodio of episodios; let i = index; let primero = first; let ultimo = last; let par = even; let impar = odd;"
+    [ngClass]="{ 'fila-par': par, 'fila-impar': !par }">
+    <p>{{i+1}} Título: {{episodio.title}}</p>
+    <p>Director: {{episodio.director}}</p>
+    <ul>
+        <li>Primero: {{primero}}</li>
+        <li>Último: {{ultimo}}</li>
+        <li>Par: {{par}}</li>
+        <li>Impar: {{impar}}</li>
+    </ul>
+</div>

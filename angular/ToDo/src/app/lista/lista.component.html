@@ -1,1 +1,8 @@
-<div [innerHTML]="mostrarTareas()"></div>
+<div class="wrapper" *ngFor="let tarea of tareas;"
+    [ngClass]="{ 'tarea-completa': tarea.completa , 'tarea-incompleta': !tarea.completa }">
+    <h3>{{tarea.titulo}}</h3>
+    <p>{{tarea.descripcion}}</p>
+    <button class="btn btn-block btn-primary" (click)="marcarCompleta(tarea)">
+        {{ (tarea.completa) ? "MARCAR INCOMPLETA" : "MARCAR COMPLETA" }}
+    </button>
+</div>

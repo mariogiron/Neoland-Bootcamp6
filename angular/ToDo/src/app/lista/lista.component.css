@@ -1,0 +1,14 @@
+.wrapper {
+    background-color: papayawhip;
+    padding: 20px;
+    border: .5px solid black;
+    margin-bottom: 10px;
+}
+
+.tarea-completa {
+    background-color: rgb(208, 255, 208);
+}
+
+.tarea-incompleta {
+    background-color: rgb(255, 198, 198);
+}

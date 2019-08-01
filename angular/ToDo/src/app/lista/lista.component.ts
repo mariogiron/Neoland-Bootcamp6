@@ -23,4 +23,9 @@ export class ListaComponent implements OnInit {
     return total;
   }
 
+  marcarCompleta(pTarea) {
+    console.log(pTarea);
+    pTarea.completa = !pTarea.completa;
+  }
+
 }

@@ -1,0 +1,9 @@
+<div [ngSwitch]="departamento">
+    <p *ngSwitchCase="'contabilidad'" underline>Contabilidad</p>
+    <p *ngSwitchCase="'desarrollo'">Desarrollo</p>
+    <p *ngSwitchCase="'ux/ui'">UX/UI</p>
+    <p *ngSwitchDefault>Ese departamento no existe</p>
+</div>
+<button (click)="cambiarDepartamento('contabilidad')">Contabilidad</button><br>
+<button (click)="cambiarDepartamento('desarrollo')">Desarrollo</button><br>
+<button (click)="cambiarDepartamento('ux/ui')">UX/UI</button><br>

@@ -19,7 +19,9 @@ export class FormularioComponent implements OnInit {
   }
 
   onSendForm() {
+    this.tarea.completa = false;
     this.tareaEnviada.emit(this.tarea);
+    this.tarea = {};
   }
 
 }

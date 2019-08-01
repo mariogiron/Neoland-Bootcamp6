@@ -1,0 +1,14 @@
+.wrapper {
+    width: 150px;
+    height: auto;
+    font-size: 40px;
+    background-color: rgb(206, 255, 250);
+    padding: 10px 20px 10px 20px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.wrapper h4 {
+    font-size: 18px;
+    color: rgb(37, 113, 255);
+}

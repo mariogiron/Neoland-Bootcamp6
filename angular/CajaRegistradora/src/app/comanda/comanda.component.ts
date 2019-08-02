@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Producto } from './../models/producto.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'comanda',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComandaComponent implements OnInit {
 
+  @Input() productosPedidos: Producto[]
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  precioTotal() {
+    let total = 0;
+    for (let prod of this.productosPedidos) {
+      total += prod.precio
+    }
+    return total;
   }
 
 }

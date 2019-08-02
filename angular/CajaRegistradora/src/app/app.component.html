@@ -1,0 +1,6 @@
+<lista-productos titulo="Comida" [productos]="arrProdsComida" (productoSeleccionado)="onProductoSeleccionado($event)">
+</lista-productos>
+<lista-productos titulo="Bebida" [productos]="arrProdsBebida" (productoSeleccionado)="onProductoSeleccionado($event)">
+</lista-productos>
+
+<comanda [productosPedidos]="arrProductosSeleccionados"></comanda>

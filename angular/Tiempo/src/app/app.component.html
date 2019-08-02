@@ -1,3 +1,12 @@
-<reloj-simple identificador="PRIM" segundos="120"></reloj-simple>
-<reloj-simple identificador="SEGUNDO" segundos="345"></reloj-simple>
-<reloj-simple identificador="TERCERO" segundos="7689"></reloj-simple>
+<reloj-simple identificador="PRIM" segundos="35" (avisa30Segundos)="onAvisa30Segundos($event)"
+    (avisaTermina)="onAvisaTermina($event)"></reloj-simple>
+<reloj-simple identificador="SEGUNDO" segundos="43" (avisa30Segundos)="onAvisa30Segundos($event)"
+    (avisaTermina)="onAvisaTermina($event)"></reloj-simple>
+<reloj-simple identificador="TERCERO" segundos="22" (avisa30Segundos)="onAvisa30Segundos($event)"
+    (avisaTermina)="onAvisaTermina($event)"></reloj-simple>
+
+<ul>
+    <li *ngFor="let mensaje of mensajes">
+        {{mensaje}}
+    </li>
+</ul>

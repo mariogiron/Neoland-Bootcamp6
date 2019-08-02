@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'reloj-simple',
@@ -10,9 +10,17 @@ export class RelojSimpleComponent implements OnInit {
   @Input() identificador: string;
   @Input() segundos: string;
 
+  // Declaro los output de mi componente
+  @Output() avisa30Segundos: EventEmitter<any>;
+  @Output() avisaTermina: EventEmitter<any>;
+
   contador: number;
 
-  constructor() { }
+  constructor() {
+    // Inicializo los Output de mi componente
+    this.avisa30Segundos = new EventEmitter();
+    this.avisaTermina = new EventEmitter();
+  }
 
   ngOnInit() {
     console.log(this.identificador, this.segundos);
@@ -21,7 +29,11 @@ export class RelojSimpleComponent implements OnInit {
     // Lanzo el intervalo sobre ese número
     let interval = setInterval(() => {
       this.contador--;
+      if (this.contador == 30) {
+        this.avisa30Segundos.emit(this.identificador);
+      }
       if (this.contador == 0) {
+        this.avisaTermina.emit(this.identificador);
         clearInterval(interval);
       }
     }, 1000)

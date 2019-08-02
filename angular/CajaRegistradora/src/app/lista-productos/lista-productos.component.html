@@ -1,0 +1,6 @@
+<h2>{{titulo}}</h2>
+<div *ngFor="let producto of productos" (click)="pulsaProducto(producto)">
+    NOMBRE: {{producto.nombre}}
+    <img [src]="producto.imagen" alt="">
+    PRECIO: {{producto.precio}}
+</div>

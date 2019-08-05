@@ -1,8 +1,24 @@
 <h1>Cabecera</h1>
 <h2>Subtítulo de la cabecera</h2>
 
+<nav>
+  <ul>
+    <li><a [routerLink]="['/main']">Main</a></li>
+    <li><a [routerLink]="['/about']">About</a></li>
+    <li><a [routerLink]="['/contact']">Contact</a></li>
+    <li><a [routerLink]="['/pricing']">Pricing</a></li>
+  </ul>
+</nav>
+
 <div>
   <router-outlet></router-outlet>
 </div>
+
+<nav>
+  <button (click)="goToPage('main')">Main</button>
+  <button (click)="goToPage('about')">About</button>
+  <button (click)="goToPage('contact')">Contact</button>
+  <button (click)="goToPage('pricing')">Pricing</button>
+</nav>
 
 <footer>@Mario 2019. Pie de página</footer>

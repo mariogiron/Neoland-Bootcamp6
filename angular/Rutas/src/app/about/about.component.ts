@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  namePlantilla: string
+  surnamePlantilla: string
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.params.subscribe((params) => {
+      this.namePlantilla = params.name;
+      this.surnamePlantilla = params.surname;
+    });
+  }
 
   ngOnInit() {
   }

@@ -9,6 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class FormularioComponent implements OnInit {
 
   empleadoFormulario: Empleado;
+
   @Output() envioEmpleado: EventEmitter<Empleado>
 
   constructor() {

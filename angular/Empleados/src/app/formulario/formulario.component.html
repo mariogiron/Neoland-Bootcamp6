@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="form-group">
+        <label for="">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="empleadoFormulario.nombre">
+    </div>
+    <div class="form-group">
+        <label for="">Apellidos</label>
+        <input type="text" class="form-control" [(ngModel)]="empleadoFormulario.apellidos">
+    </div>
+    <div class="form-group">
+        <label for="">DNI</label>
+        <input type="text" class="form-control" [(ngModel)]="empleadoFormulario.dni">
+    </div>
+    <div class="form-group">
+        <label for="">Departamento</label>
+        <input type="text" class="form-control" [(ngModel)]="empleadoFormulario.departamento">
+    </div>
+    <input type="button" value="Enviar" (click)="enviarFormulario()">
+</div>

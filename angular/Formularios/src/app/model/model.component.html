@@ -1,0 +1,31 @@
+<form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Nombre</label>
+        <input type="text" class="form-control" formControlName="nombre">
+    </div>
+    <div class="form-group">
+        <label for="">Apellidos</label>
+        <input type="text" class="form-control" formControlName="apellidos">
+    </div>
+    <div class="form-group">
+        <label for="">Email</label>
+        <input type="email" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+        <label for="">Dni</label>
+        <input type="text" class="form-control" formControlName="dni">
+    </div>
+    <div class="form-group">
+        <label for="">Edad</label>
+        <input type="number" class="form-control" formControlName="edad">
+    </div>
+    <div class="form-group">
+        <label for="">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+    </div>
+    <div class="form-group">
+        <label for="">Repite Password</label>
+        <input type="password" class="form-control" formControlName="password_repeat">
+    </div>
+    <input type="submit" value="Enviar" class="btn btn-block btn-primary">
+</form>

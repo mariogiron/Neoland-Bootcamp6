@@ -8,6 +8,10 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
+import { RelatedComponent } from './related/related.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { LibroComponent } from './libro/libro.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { EmpleadoComponent } from './empleado/empleado.component';
     ContactComponent,
     AboutComponent,
     PricingComponent,
-    EmpleadoComponent
+    EmpleadoComponent,
+    RelatedComponent,
+    ReviewsComponent,
+    LibroComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

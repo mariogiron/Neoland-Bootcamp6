@@ -27,10 +27,13 @@
             <div class="form-group">
                 <label for="">Dni</label>
                 <input type="text" class="form-control" formControlName="dni">
+                <p class="error" *ngIf="formulario.controls['dni'].errors && formulario.controls['dni'].touched">
+                    ⚠️ {{formulario.controls['dni'].errors.dnivalidator }} ⚠️
+                </p>
             </div>
             <div class="form-group">
                 <label for="">Edad</label>
-                <input type="number" class="form-control" formControlName="edad">
+                <input type="text   " class="form-control" formControlName="edad">
             </div>
             <div class="form-group">
                 <label for="">Password</label>

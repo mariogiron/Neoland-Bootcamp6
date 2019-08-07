@@ -1,0 +1,12 @@
+<h2>{{ preguntas[preguntaActual].texto }}</h2>
+<app-respuestas [respuestas]="preguntas[preguntaActual].respuestas"
+    (respuestaSeleccionada)="onRespuestaSeleccionada($event)"></app-respuestas>
+<h3>{{mensaje}}</h3>
+<div class="resultado" *ngIf="aciertos.length == preguntas.length">
+    <ul>
+        <li *ngFor="let acierto of aciertos; let indice = index;">
+            PREGUNTA {{indice+1}} -> {{ acierto ? 'CORRECTA' : 'INCORRECTA' }}
+        </li>
+    </ul>
+</div>
+<app-crono [estado]="estadoCrono" (cronoTerminado)="onCronoTerminado($event)"></app-crono>

@@ -93,9 +93,11 @@ export class ModelComponent implements OnInit {
     let passwordValue = form.controls['password'].value;
     let passwordRepeatValue = form.controls['password_repeat'].value;
 
-    console.log(passwordValue, passwordRepeatValue);
-
-    return null;
+    if (passwordValue === passwordRepeatValue) {
+      return null;
+    } else {
+      return { passwordvalidator: 'Las contraseÑas deben ser iguales' }
+    }
   }
 
 }

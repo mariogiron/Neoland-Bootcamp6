@@ -1,31 +1,56 @@
-<form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="">Nombre</label>
-        <input type="text" class="form-control" formControlName="nombre">
+<div class="row">
+    <div class="col-8">
+        <p *ngIf="formulario.untouched">Rellena el formulario siguiente</p>
+        <form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre">
+                <p class="error"
+                    *ngIf="formulario.controls['nombre'].errors?.required && formulario.controls['nombre'].touched">
+                    El campo nombre es requerido
+                </p>
+                <p class="error"
+                    *ngIf="formulario.controls['nombre'].errors?.maxlength && formulario.controls['nombre'].touched">
+                    El campo nombre debe tener máximo {{formulario.controls['nombre'].errors?.maxlength.requiredLength}}
+                    caracteres. Tú has insertado {{formulario.controls['nombre'].errors?.maxlength.actualLength}}
+                    caracteres.
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="">Apellidos</label>
+                <input type="text" class="form-control" formControlName="apellidos">
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="">Dni</label>
+                <input type="text" class="form-control" formControlName="dni">
+            </div>
+            <div class="form-group">
+                <label for="">Edad</label>
+                <input type="number" class="form-control" formControlName="edad">
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <div class="form-group">
+                <label for="">Repite Password</label>
+                <input type="password" class="form-control" formControlName="password_repeat">
+            </div>
+            <input type="submit" value="Enviar" [disabled]="!formulario.valid" class="btn btn-block btn-primary">
+        </form>
     </div>
-    <div class="form-group">
-        <label for="">Apellidos</label>
-        <input type="text" class="form-control" formControlName="apellidos">
+    <div class="col-4">
+        <ul>
+            <li [ngClass]="{ 'tachado': !formulario.controls['nombre'].errors?.required }">
+                El campo nombre es requerido
+            </li>
+            <li [ngClass]="{ 'tachado': !formulario.controls['nombre'].errors?.maxlength }">
+                El campo nombre debe tener como máximo 15 caracteres
+            </li>
+        </ul>
     </div>
-    <div class="form-group">
-        <label for="">Email</label>
-        <input type="email" class="form-control" formControlName="email">
-    </div>
-    <div class="form-group">
-        <label for="">Dni</label>
-        <input type="text" class="form-control" formControlName="dni">
-    </div>
-    <div class="form-group">
-        <label for="">Edad</label>
-        <input type="number" class="form-control" formControlName="edad">
-    </div>
-    <div class="form-group">
-        <label for="">Password</label>
-        <input type="password" class="form-control" formControlName="password">
-    </div>
-    <div class="form-group">
-        <label for="">Repite Password</label>
-        <input type="password" class="form-control" formControlName="password_repeat">
-    </div>
-    <input type="submit" value="Enviar" class="btn btn-block btn-primary">
-</form>
+</div>

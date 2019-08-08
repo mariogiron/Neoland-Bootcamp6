@@ -1,1 +1,10 @@
-<p>detalle-escritor works!</p>
+<div class="row">
+    <div class="col-4">
+        <img [src]="escritor?.imagen" alt="">
+    </div>
+    <div class="col-8">
+        <h3>{{escritor?.nombre}} {{escritor?.apellidos}}</h3>
+        <p>{{escritor?.pais}}</p>
+        <p>{{escritor?.id}}</p>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+import { LibrosService } from './../libros.service';
 import { Component, OnInit } from '@angular/core';
 import { EscritoresService } from '../escritores.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,9 +13,15 @@ export class DetalleEscritorComponent implements OnInit {
 
   escritor: Escritor;
 
-  constructor(private escritoresService: EscritoresService, private activatedRoute: ActivatedRoute) { }
+  constructor(private escritoresService: EscritoresService, private activatedRoute: ActivatedRoute, private librosService: LibrosService) { }
 
   ngOnInit() {
+
+    this.librosService.getByEscritorId(3)
+      .then((libros) => {
+        console.log(libros);
+      })
+
     this.activatedRoute.params.subscribe(params => {
       this.escritoresService.getByIdP(params.idEscritor)
         .then((pEscritor) => {

@@ -17,11 +17,6 @@ export class DetalleEscritorComponent implements OnInit {
 
   ngOnInit() {
 
-    this.librosService.getByEscritorId(3)
-      .then((libros) => {
-        console.log(libros);
-      })
-
     this.activatedRoute.params.subscribe(params => {
       this.escritoresService.getByIdP(params.idEscritor)
         .then((pEscritor) => {

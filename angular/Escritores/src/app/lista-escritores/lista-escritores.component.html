@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{esc.nombre}} {{esc.apellidos}}</h5>
                 <p class="card-text">{{esc.pais}}</p>
-                <a href="#" class="btn btn-primary btn-block">Detalle</a>
+                <a href="#" class="btn btn-primary btn-block" [routerLink]="[esc.id, 'libros']">Detalle</a>
             </div>
         </div>
     </div>

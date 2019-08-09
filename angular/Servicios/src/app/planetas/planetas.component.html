@@ -1,1 +1,12 @@
-<p>planetas works!</p>
+<div>
+    <button (click)="onPageChange('prev')" [disabled]="currentPage==1">ANTERIOR</button>
+    <button (click)="onPageChange('next')" [disabled]="currentPage==numPages">SIGUIENTE</button>
+</div>
+<div *ngFor="let planeta of arrPlanetas">
+    <hr>
+    <ul>
+        <li>{{planeta.name}}</li>
+        <li>{{planeta.diameter}}</li>
+        <li>{{planeta.climate}}</li>
+    </ul>
+</div>

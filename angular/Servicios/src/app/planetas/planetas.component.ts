@@ -8,16 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetasComponent implements OnInit {
 
-  constructor(private swService: SwService) { }
+  arrPlanetas: any[]
+  currentPage: number;
+  numPages: number;
+
+  constructor(private swService: SwService) {
+    this.currentPage = 1;
+  }
 
   ngOnInit() {
-    this.swService.getPlanets().subscribe((response) => {
-      console.log(response);
-    });
+    // this.swService.getPlanets().subscribe((response) => {
+    //   console.log(response);
+    // });
 
-    this.swService.getPlanetsP().then((response) => {
-      console.log(response['results']);
+    this.recuperarPlanetas();
+  }
+
+  recuperarPlanetas() {
+    this.swService.getPlanetsP(this.currentPage).then((response) => {
+      this.arrPlanetas = response['results'];
+      this.numPages = Math.ceil(response['count'] / 10)
     })
+  }
+
+  onPageChange(action) {
+    if (action == 'prev') {
+      this.currentPage--;
+    } else {
+      this.currentPage++;
+    }
+    this.recuperarPlanetas();
   }
 
 }

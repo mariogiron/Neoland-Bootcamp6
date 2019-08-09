@@ -16,8 +16,8 @@ export class SwService {
     return this.http.get(this.baseUrl);
   }
 
-  getPlanetsP() {
-    return this.http.get(this.baseUrl).toPromise();
+  getPlanetsP(page) {
+    return this.http.get(`${this.baseUrl}&page=${page}`).toPromise();
   }
 
 }

@@ -1,1 +1,4 @@
-<p>cart works!</p>
+<div *ngFor="let item of itemsCart">
+    <h3>{{item.name}}</h3>
+    <p>{{item.price}} x {{item.count}}</p>
+</div>

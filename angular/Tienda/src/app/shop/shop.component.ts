@@ -32,4 +32,16 @@ export class ShopComponent implements OnInit {
       })
   }
 
+  onClickComprar(pId) {
+    if (localStorage.getItem('token')) {
+      this.itemsService.insertProduct(pId).then(response => console.log(response));
+    } else {
+      this.itemsService.createCart()
+        .then(response => {
+          localStorage.setItem('token', response['token_cart']);
+          this.itemsService.insertProduct(pId).then(response => console.log(response));
+        })
+    }
+  }
+
 }

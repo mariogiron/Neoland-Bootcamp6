@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Blog';
+
+  ngOnInit() {
+    // localStorage.setItem('cadena', 'Hola Localstorage');
+    let cad = localStorage.getItem('cadena');
+    // alert(cad);
+  }
+
 }

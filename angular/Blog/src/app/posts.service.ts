@@ -9,11 +9,18 @@ export class PostsService {
   arrPosts: Post[]
 
   constructor() {
-    this.arrPosts = [];
+    if (localStorage.getItem('posts')) {
+      let arr = JSON.parse(localStorage.getItem('posts'));
+      this.arrPosts = arr;
+    } else {
+      this.arrPosts = [];
+    }
   }
 
   agregarPost(pPost) {
     this.arrPosts.push(pPost);
+    let arrPostsStr = JSON.stringify(this.arrPosts);
+    localStorage.setItem('posts', arrPostsStr);
   }
 
   getAllPosts(): Promise<Post[]> {

@@ -1,0 +1,17 @@
+<select (change)="onChange($event)">
+    <option value="macbook">Macbook</option>
+    <option value="imac">iMac</option>
+    <option value="macmini">Mac Mini</option>
+    <option value="iphone">iPhone</option>
+    <option value="ipad">iPad</option>
+    <option value="watch">Watch</option>
+    <option value="accesorios">Accesorios</option>
+</select>
+<div>
+    <div *ngFor="let item of items">
+        <img [src]="item.image" alt="">
+        <h3>{{item.name}}</h3>
+        <p>{{item.description}}</p>
+        <p>{{item.price}}</p>
+    </div>
+</div>

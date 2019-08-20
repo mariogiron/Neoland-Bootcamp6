@@ -1,0 +1,6 @@
+<div class="semaforo" [@cambiaColor]="estado"></div>
+
+<div class="cuadrado" [@aparicion]="'inicial'"></div>
+
+<h2 class="animated" [ngClass]="{ flash: encima , infinite: encima }" (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()">Cabecera!!</h2>

@@ -12,6 +12,8 @@ export class ReversoPipe implements PipeTransform {
       arrN.push(arrSpl[i]);
     }
     return arrN.join(' ');
+
+
   }
 
 }

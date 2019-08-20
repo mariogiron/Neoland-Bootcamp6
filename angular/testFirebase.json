@@ -1,0 +1,29 @@
+{
+    "contactos": [
+        {
+            "nombre": "Mario",
+            "direccion": "C Gran Via 23",
+            "telefono": 91001291
+        },
+        {
+            "nombre": "Rocío",
+            "direccion": "C Desengaño 56",
+            "telefono": 91023232
+        },
+        {
+            "nombre": "Laura",
+            "direccion": "C Gota de Leche 98",
+            "telefono": 9112121
+        }
+    ],
+    "escuelas": [
+        {
+            "nombre": "Neoland",
+            "direccion": "Plaza España 11"
+        },
+        {
+            "nombre": "Ironhack",
+            "direccion": "Matadero (mu bonito)"
+        }
+    ]
+}

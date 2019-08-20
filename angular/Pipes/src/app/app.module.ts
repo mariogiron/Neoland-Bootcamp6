@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CapitalizePipe } from './capitalize.pipe';
+import { ReversoPipe } from './reverso.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CapitalizePipe,
+    ReversoPipe
   ],
   imports: [
     BrowserModule,

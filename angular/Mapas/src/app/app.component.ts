@@ -9,8 +9,12 @@ declare var google;
 })
 export class AppComponent {
 
-  @ViewChild('googleMap', { static: true }) gMapElement: any;
+  @ViewChild('googleMap', { static: false }) gMapElement: any;
+  @ViewChild('inputPlaces', { static: false }) inputPlacesElement: any;
   map: any;
+
+  directionsService: any;
+  directionsDisplay: any;
 
   ngOnInit() {
     if (navigator.geolocation) {
@@ -23,6 +27,9 @@ export class AppComponent {
   }
 
   loadMap(currentCoords) {
+    this.directionsService = new google.maps.DirectionsService();
+    this.directionsDisplay = new google.maps.DirectionsRenderer();
+
     let mapProps = {
       center: new google.maps.LatLng(currentCoords.latitude, currentCoords.longitude),
       zoom: 17,
@@ -30,8 +37,11 @@ export class AppComponent {
     }
     this.map = new google.maps.Map(this.gMapElement.nativeElement, mapProps);
 
+    this.directionsDisplay.setMap(this.map);
+
     let marker = new google.maps.Marker({
       position: mapProps.center,
+      // position: new google.maps.LatLng(40.43400290, 4.131292130),
       title: 'Aquí estoy mamá!',
       animation: google.maps.Animation.BOUNCE
     });
@@ -42,6 +52,49 @@ export class AppComponent {
       let markerClick = new google.maps.Marker({ position: event.latLng, animation: google.maps.Animation.DROP })
       markerClick.setMap(this.map);
     })
+
+    // AUTOCOMPLETE
+    let options = {
+      types: ['address']
+    }
+    let autocomplete = new google.maps.places.Autocomplete(this.inputPlacesElement.nativeElement, options);
+    // let autocomplete = new google.maps.places.Autocomplete(document.getElementById('iPlaces'));
+
+    autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
+    console.log(this.map);
+
+    let self = this;
+    autocomplete.addListener('place_changed', function () {
+      let place = autocomplete.getPlace();
+      let lat = place.geometry.location.lat();
+      let lng = place.geometry.location.lng();
+      self.map.setCenter(place.geometry.location);
+
+      let markerPlace = new google.maps.Marker({ position: place.geometry.location, animation: google.maps.Animation.DROP })
+      markerPlace.setMap(self.map);
+    })
+
+  }
+
+  // Método que calcula la ruta entre dos puntos cuando pulso un botón
+  onClick() {
+    let start = 'madrid, es';
+    let end = 'valencia, es';
+
+    // Creamos las opciones de la petición
+    let opts = {
+      origin: start,
+      destination: end,
+      travelMode: google.maps.TravelMode.WALKING
+    }
+
+    // Lanzamos la petición
+    let self = this;
+    this.directionsService.route(opts, function (result, status) {
+      console.log(result);
+      self.directionsDisplay.setDirections(result);
+    })
+
   }
 
   showError(error) {

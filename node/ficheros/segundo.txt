@@ -1,0 +1,3 @@
+Contenido de SEGUNDO
+
+Es un ficherito de texto

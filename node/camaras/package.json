@@ -1,0 +1,22 @@
+{
+  "name": "camaras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chalk": "^2.4.2",
+    "fast-xml-parser": "^3.12.20",
+    "fs-extra": "^8.1.0",
+    "got": "^9.6.0",
+    "kml-parse": "0.0.2",
+    "terminal-image": "^0.2.0",
+    "xmldom": "^0.1.27"
+  }
+}

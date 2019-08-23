@@ -1,0 +1,5 @@
+<div *ngIf="contacto">
+    <p>{{contacto.first_name}} {{contacto.last_name}}</p>
+    <img [src]="contacto.avatar" alt="">
+</div>
+<p *ngIf="!contacto">No has seleccionado ningún contacto</p>

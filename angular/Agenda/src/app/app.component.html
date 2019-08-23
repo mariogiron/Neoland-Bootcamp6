@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <app-lista-contactos (contactoSeleccionado)="onContactoSeleccionado($event)"></app-lista-contactos>
+    </div>
+    <div class="col-8">
+      <app-detalle-contacto [contacto]="contactoSel"></app-detalle-contacto>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let contacto of contactos" (click)="onContactoClick(contacto)">
+        {{contacto.id}} {{ contacto.first_name }} {{ contacto.last_name }}
+    </li>
+</ul>
+<div>
+    <button *ngFor="let page of createArray(); let indice = index" (click)="onClickPage(indice+1)">
+        {{indice+1}}
+    </button>
+</div>

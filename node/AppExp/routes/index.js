@@ -3,10 +3,30 @@ var router = express.Router();
 
 let login = true;
 
+router.use((req, res, next) => {
+  console.log('PASA POR EL USE de index.js');
+  next();
+})
+
+router.all('/', (req, res, next) => {
+  console.log('PASA POR EL ALL DE index.js');
+  next();
+})
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   console.log('INDEX: ', req.fechaActual);
-  res.render('index', { title: 'Express' });
+  let randomNum = Math.round(Math.random() * 10);
+
+
+  res.render('index', {
+    title: 'Express',
+    clases: ['rojo', 'cuadrado', 'grande'],
+    numEstudiantes: randomNum,
+    activo: true,
+    fechaActual: req.fechaActual,
+    metodo: req.method
+  });
 });
 
 // http://localhost:3000/contacto

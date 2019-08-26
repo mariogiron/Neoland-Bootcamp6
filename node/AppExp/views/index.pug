@@ -1,5 +1,32 @@
-extends layout
-
-block content
-  h1= title
-  p Bienvenido a #{title}
+h2 Petición realizada en #{fechaActual} con el método #{metodo}
+div.primero
+  p Esto es un párrafo
+  p= title
+  p Estoy usando la tecnología #{title}
+div.segundo
+  a(href="http://www.google.es", target="_blank", class="enlaces") Google.es
+  p#parrafo.clase1.clase2 Contenido del párrafo
+.tercero
+  // Comentario HTML
+  //- Comentario interno del fichero PUG
+  p Párrafo con comentarios
+  - let nombre = 'Mario'
+  p= nombre
+  p(class=clases) Párrafo con tres clases
+.cuarto
+  case numEstudiantes
+    when 0
+      p No hay estudiantes
+    when 1
+      p Hay un único estudiante
+    default 
+      p Hay #{numEstudiantes} estudiantes
+.quinto
+  ul
+    - for(let i = 0; i<clases.length; i++)
+      li= clases[i]
+.sexto
+  if activo
+    p La variable activo es TRUE
+  else
+    p La variable activo es FALSE

@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 
 // http://localhost:3000/users/87
 // http://localhost:3000/users/87?format=json&appid=213213msad
-router.get('/:userId', (req, res) => {
+router.get('/:userId', (req, res, next) => {
   console.log(req.params.userId);
   console.log(req.query.appid);
   if (req.query.format == 'json') {

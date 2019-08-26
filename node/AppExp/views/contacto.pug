@@ -1,0 +1,21 @@
+extends layout.pug
+    
+block contenido
+    .row
+        .col-8
+            p Estoy dentro de la ruta /contacto
+            ul
+                - for(let i = 0; i<personas.length; i++)
+                    li= personas[i].nombre
+            ul
+                each persona, indice in personas
+                    li #{indice} - #{persona.nombre}
+                else
+                    li No existen personas
+        .col-4
+            div.mixins
+                +lista(personas)
+                +lista([])
+
+block piepagina
+    p Footer para la ruta /contacto

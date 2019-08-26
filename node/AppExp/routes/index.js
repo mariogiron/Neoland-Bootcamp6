@@ -30,9 +30,14 @@ router.get('/', function (req, res, next) {
 });
 
 // http://localhost:3000/contacto
-router.get('/contacto', [checkUserToken, checkLogin, middleware1, middleware2], (req, res) => {
-
-  res.send('RESPUESTA FINAL');
+router.get('/contacto', [checkLogin, middleware1, middleware2], (req, res) => {
+  res.render('contacto', {
+    personas: [
+      { nombre: 'Rocío', apellidos: 'Molero', edad: 32 },
+      { nombre: 'Manuel', apellidos: 'García', edad: 29 },
+      { nombre: 'Ramón', apellidos: 'Gutiérrez', edad: 48 }
+    ]
+  });
 });
 
 router.get('/about', [checkLogin, middleware2], (req, res) => {

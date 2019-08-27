@@ -3,7 +3,9 @@ extends layout.pug
 block contenido
     .row
         .col-8
-            p Estoy dentro de la ruta /contacto
+            | esto es texto plano
+            p 
+                | Estoy dentro de la ruta /contacto
             ul
                 - for(let i = 0; i<personas.length; i++)
                     li= personas[i].nombre
@@ -12,6 +14,9 @@ block contenido
                     li #{indice} - #{persona.nombre}
                 else
                     li No existen personas
+            script.
+                alert('Esto es una alerta');
+                console.log('Esto también');
         .col-4
             div.mixins
                 +lista(personas)

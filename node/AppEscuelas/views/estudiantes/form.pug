@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    h2 Nuevo Estudiante
+    form(action="/estudiantes/create", method="POST").mb-5
+        .form-group
+            label(for="nombre") Nombre
+            input.form-control(type="text", name="nombre")
+        .form-group
+            label(for="apellidos") Apellidos
+            input.form-control(type="text", name="apellidos")
+        .form-group
+            label(for="emails") Email
+            input.form-control(type="text", name="email")
+        .form-group
+            label(for="edad") Edad
+            input.form-control(type="text", name="edad")
+        .form-group
+            label(for="nota_media") Nota Media
+            input.form-control(type="text", name="nota_media")
+        .form-group
+            label(for="matricula") Matrícula
+            input.form-control(type="text", name="matricula")
+        .form-group
+            label(for="discapacidad") Discapacidad
+            input.form-control(type="text", name="discapacidad")
+        .form-group
+            label(for="sexo") Sexo
+            select.form-control(type="select", name="sexo")
+                option(value="m") M
+                option(value="f") F
+        input(type="submit", value="Enviar").btn.btn-block.btn-primary

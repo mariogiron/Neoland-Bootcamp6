@@ -2,3 +2,21 @@ extends ../layout
 
 block content
     h2 Lista de Estudiantes
+    table.table
+        thead
+            tr
+                th id
+                th nombre
+                th apellidos
+                th email
+                th edad
+                th matricula
+        tbody
+            each estudiante in estudiantes
+                tr
+                    td= estudiante.id
+                    td= estudiante.nombre
+                    td= estudiante.apellidos
+                    td= estudiante.email
+                    td= estudiante.edad
+                    td= estudiante.matricula

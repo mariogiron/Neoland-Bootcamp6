@@ -1,19 +1,39 @@
 let express = require('express');
 let router = express.Router();
 
-// http://localhost:3000/estudiantes/hola
+const modelAlumno = require('../models/alumnos');
 
+// http://localhost:3000/estudiantes/
 router.get('/', (req, res) => {
-    res.render('estudiantes/list');
+    modelAlumno.getAllP()
+        .then((rows) => {
+            res.render('estudiantes/list', { estudiantes: rows });
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+})
+
+// http://localhost:3000/estudiantes/v2
+router.get('/v2', async (req, res) => {
+    try {
+        let rows = await modelAlumno.getAllP();
+        res.render('estudiantes/list', { estudiantes: rows });
+    } catch (err) {
+        res.send('ERRORACO!!')
+    }
 })
 
 router.get('/new', (req, res) => {
     res.render('estudiantes/form');
 })
 
-router.get('/:estudianteId', (req, res) => {
+router.get('/:estudianteId', async (req, res) => {
+    let alumno = await modelAlumno.getById(req.params.estudianteId)
+
     res.render('estudiantes/show', {
-        estudianteId: req.params.estudianteId
+        estudianteId: req.params.estudianteId,
+        alumno: alumno
     });
 })
 

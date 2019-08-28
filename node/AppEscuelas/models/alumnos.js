@@ -19,11 +19,3 @@ const getAllP = () => {
 module.exports = {
     getAll: getAll
 }
--------
-    modelAlumnos.getAllP()
-        .then((rows) => {
-
-        })
-        .catch((err) => {
-
-        })

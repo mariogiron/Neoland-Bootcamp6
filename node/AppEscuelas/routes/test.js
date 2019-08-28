@@ -3,6 +3,8 @@ let router = express.Router();
 
 const mysql = require('mysql');
 
+const db = require('../db');
+
 let connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -21,6 +23,13 @@ router.get('/', (req, res) => {
         })
 
         // res.send('Conexión completa')
+    })
+})
+
+router.get('/v2', (req, res) => {
+    db.get().query('select * from alumnos', (err, rows) => {
+        if (err) return res.json(err);
+        res.json(rows);
     })
 })
 

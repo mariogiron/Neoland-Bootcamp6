@@ -24,4 +24,25 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/insert', (req, res) => {
+    connection.connect((err) => {
+        if (err) return console.log(err);
+        let nombre = 'Mario';
+        let apellidos = 'Girón';
+        let matricula = 'AF453';
+        let activo = true;
+        let arr = [nombre, apellidos, matricula, activo]
+        const query = `insert into alumnos (nombre, apellidos, matricula, activo) values (?, ?, ?, ?)`;
+
+        // Primer param - Sentencia SQL. Donde tengamos que insertar valores colocamos el caracter ?
+        // Segundo param - Array con los valores que se van a sustitir por las ?
+        // ¡¡ Cuidado con el orden!!
+        connection.query(query, arr, (err, result) => {
+            if (err) return res.send(err.message);
+            connection.end();
+            res.json(result);
+        })
+    });
+})
+
 module.exports = router;

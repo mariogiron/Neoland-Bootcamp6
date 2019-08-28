@@ -29,20 +29,34 @@ router.get('/insert', (req, res) => {
         if (err) return console.log(err);
         let nombre = 'Mario';
         let apellidos = 'Girón';
-        let matricula = 'AF453';
+        let matricula = 'AF455';
         let activo = true;
-        let arr = [nombre, apellidos, matricula, activo]
-        const query = `insert into alumnos (nombre, apellidos, matricula, activo) values (?, ?, ?, ?)`;
+        let arr = [nombre, apellidos, matricula, activo, new Date()]
+        const query = `insert into alumnos (nombre, apellidos, matricula, activo, fecha_matricula) values (?, ?, ?, ?, ?)`;
 
         // Primer param - Sentencia SQL. Donde tengamos que insertar valores colocamos el caracter ?
-        // Segundo param - Array con los valores que se van a sustitir por las ?
+        // Segundo param - (opcional) Array con los valores que se van a sustitir por las ?
         // ¡¡ Cuidado con el orden!!
         connection.query(query, arr, (err, result) => {
             if (err) return res.send(err.message);
-            connection.end();
             res.json(result);
         })
     });
+})
+
+router.get('/:alumnoId', (req, res) => {
+    connection.connect((err) => {
+        if (err) return console.log(err);
+        const query = 'select * from alumnos where id = ?';
+        connection.query(query, [req.params.alumnoId], (err, rows) => {
+            if (err) return res.send(err.message);
+            if (rows.length == 0) {
+                res.send('No existe alumno para ese ID');
+            } else {
+                res.json(rows[0]);
+            }
+        })
+    })
 })
 
 module.exports = router;

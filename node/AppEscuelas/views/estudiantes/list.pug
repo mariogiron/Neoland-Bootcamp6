@@ -24,5 +24,7 @@ block content
                     td
                         a.btn.btn-primary.btn-sm.mr-1(href="/estudiantes/"+estudiante.id)
                             i.fa.fa-eye
-                        a.btn.btn-danger.btn-sm(href="/estudiantes/delete/"+estudiante.id, onclick="return confirm('¿Estás seguro?')")
+                        a.btn.btn-danger.btn-sm.mr-1(href="/estudiantes/delete/"+estudiante.id, onclick="return confirm('¿Estás seguro?')")
                             i.fa.fa-trash
+                        a.btn.btn-success.btn-sm(href="/estudiantes/update/"+estudiante.id)
+                            i.fa.fa-edit

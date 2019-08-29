@@ -39,6 +39,16 @@ router.get('/delete/:estudianteId', (req, res) => {
         })
 });
 
+router.get('/update/:estudianteId', (req, res) => {
+    modelAlumno.getById(req.params.estudianteId)
+        .then((alumno) => {
+            res.render('estudiantes/formUpdate', { alumno: alumno });
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
 router.get('/:estudianteId', async (req, res) => {
     let alumno = await modelAlumno.getById(req.params.estudianteId)
 
@@ -54,6 +64,16 @@ router.post('/create', (req, res) => {
         .then((result) => {
             console.log(result);
             res.redirect('/estudiantes')
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
+router.post('/edit', (req, res) => {
+    modelAlumno.update(req.body.id, req.body)
+        .then((result) => {
+            res.redirect(`/estudiantes/${req.body.id}`);
         })
         .catch((err) => {
             console.log(err);

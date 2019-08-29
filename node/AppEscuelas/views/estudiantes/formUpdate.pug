@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+    h2 Edición del alumno #{alumno.id}
+    form.mb-5(action="/estudiantes/edit", method="POST")
+        .form-group
+            label(for="nombre") Nombre
+            input.form-control(type="text", name="nombre", value=alumno.nombre)
+        .form-group
+            label(for="apellidos") Apellidos
+            input.form-control(type="text", name="apellidos", value=alumno.apellidos)
+        .form-group
+            label(for="email") Email
+            input.form-control(type="text", name="email", value=alumno.email)
+        .form-group
+            label(for="edad") Edad
+            input.form-control(type="text", name="edad", value=alumno.edad)
+        .form-group
+            label(for="nota_media") Nota Media
+            input.form-control(type="text", name="nota_media", value=alumno.nota_media)
+        .form-group
+            label(for="matricula") Matrícula
+            input.form-control(type="text", name="matricula", value=alumno.matricula)
+        .form-group
+            label(for="sexo") Sexo
+            select.form-control(type="select", name="sexo", value=alumno.sexo)
+                option(value="M") M
+                option(value="F") F
+        input(type="hidden", name="id", value=alumno.id)
+        input(type="submit", value="Enviar").btn.btn-block.btn-primary

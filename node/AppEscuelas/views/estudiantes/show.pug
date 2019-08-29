@@ -1,6 +1,11 @@
 extends ../layout
 
 block content
+    div
+        a.btn.btn-danger.btn-sm.mr-1(href="/estudiantes/delete/"+alumno.id, onclick="return confirm('¿Estás seguro?')")
+            i.fa.fa-trash Borrar
+        a.btn.btn-success.btn-sm(href="/estudiantes/update/"+alumno.id)
+            i.fa.fa-edit Editar
     h3 Recupero los datos del Estudiante con id #{estudianteId}
     p Nombre: #{alumno.nombre} #{alumno.apellidos}
     p Email: #{alumno.email}

@@ -59,5 +59,6 @@ module.exports = {
     getAllP: getAllP,
     getById: getById,
     insert: insert,
-    deleteById: deleteById
+    deleteById: deleteById,
+    update: update
 }

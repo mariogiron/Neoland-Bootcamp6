@@ -28,6 +28,17 @@ router.get('/new', (req, res) => {
     res.render('estudiantes/form');
 })
 
+router.get('/delete/:estudianteId', (req, res) => {
+    modelAlumno.deleteById(req.params.estudianteId)
+        .then((result) => {
+            console.log(result);
+            res.redirect('/estudiantes')
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+});
+
 router.get('/:estudianteId', async (req, res) => {
     let alumno = await modelAlumno.getById(req.params.estudianteId)
 
@@ -39,7 +50,14 @@ router.get('/:estudianteId', async (req, res) => {
 
 router.post('/create', (req, res) => {
     console.log(req.body);
-    res.redirect('/estudiantes');
+    modelAlumno.insert(req.body)
+        .then((result) => {
+            console.log(result);
+            res.redirect('/estudiantes')
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 })
 
 module.exports = router;

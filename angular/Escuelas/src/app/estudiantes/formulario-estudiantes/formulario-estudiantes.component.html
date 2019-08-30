@@ -1,1 +1,33 @@
-<p>formulario-estudiantes works!</p>
+<form [formGroup]="formNewAlumno" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Nombre</label>
+        <input class="form-control" type="text" formControlName="nombre">
+    </div>
+    <div class="form-group">
+        <label for="">Apellidos</label>
+        <input class="form-control" type="text" formControlName="apellidos">
+    </div>
+    <div class="form-group">
+        <label for="">Email</label>
+        <input class="form-control" type="text" formControlName="email">
+    </div>
+    <div class="form-group">
+        <label for="">Edad</label>
+        <input class="form-control" type="text" formControlName="edad">
+    </div>
+    <div class="form-group">
+        <label for="">Matricula</label>
+        <input class="form-control" type="text" formControlName="matricula">
+    </div>
+    <div class="form-group">
+        <label for="">Nota media</label>
+        <input class="form-control" type="text" formControlName="nota_media">
+    </div>
+    <div class="form-group">
+        <label for="">Sexo</label>
+        <input class="form-control" type="text" formControlName="sexo">
+    </div>
+    <input type="submit" value="Enviar">
+</form>
+
+form>(.form-group>label+input:text)*7+input:submit

@@ -1,3 +1,4 @@
+import { Alumno } from './../../models/alumno.model';
 import { Component, OnInit } from '@angular/core';
 import { EstudiantesService } from 'src/app/estudiantes.service';
 
@@ -8,12 +9,14 @@ import { EstudiantesService } from 'src/app/estudiantes.service';
 })
 export class ListaEstudiantesComponent implements OnInit {
 
+  arrAlumnos: Alumno[]
+
   constructor(private estudiantesService: EstudiantesService) { }
 
   ngOnInit() {
     this.estudiantesService.getAll()
       .then((response) => {
-        console.log(response);
+        this.arrAlumnos = response;
       })
       .catch((err) => {
         console.log(err);

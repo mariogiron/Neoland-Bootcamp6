@@ -1,1 +1,28 @@
-<p>lista-estudiantes works!</p>
+<div class="row mt-5">
+    <div class="col-12">
+        <table class="table">
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>apellidos</th>
+                <th>email</th>
+                <th>edad</th>
+                <th>matricula</th>
+                <th>fecha matricula</th>
+                <th>nota media</th>
+                <th>sexo</th>
+            </tr>
+            <tr *ngFor="let alumno of arrAlumnos">
+                <td>{{alumno.id}}</td>
+                <td>{{alumno.nombre}}</td>
+                <td>{{alumno.apellidos}}</td>
+                <td>{{alumno.email}}</td>
+                <td>{{alumno.edad}}</td>
+                <td>{{alumno.matricula}}</td>
+                <td>{{alumno.fecha_matricula | date:'dd-MM-yyyy'}}</td>
+                <td>{{alumno.nota_media}}</td>
+                <td>{{alumno.sexo == 'M' ? 'Masculino' : 'Femenino'}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

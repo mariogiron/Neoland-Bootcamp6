@@ -17,4 +17,8 @@ export class EstudiantesService {
     return this.http.get<Alumno[]>(this.baseUrl).toPromise();
   }
 
+  create(values): Promise<any> {
+    return this.http.post<any>(this.baseUrl, values).toPromise();
+  }
+
 }

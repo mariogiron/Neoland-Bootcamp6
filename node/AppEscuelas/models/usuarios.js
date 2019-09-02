@@ -13,7 +13,7 @@ const getById = (pId) => {
     return new Promise((resolve, reject) => {
         db.get().query('select * from usuarios where id = ?', [pId], (err, rows) => {
             if (err) reject(err)
-            rows.length == 1 ? resolve(rows[0]) : reject('No existe usuario para ese id')
+            rows.length == 1 ? resolve(rows[0]) : resolve(null)
         })
     })
 }

@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let alumnoModel = require('../../models/alumnos');
+const middlewares = require('../middlewares');
 
 // router.use((req, res, next) => {
 //     if (req.query.format === 'json') {
@@ -9,6 +10,8 @@ let alumnoModel = require('../../models/alumnos');
 //         res.json({ amenaza: 'Mi API sólo devuelve JSONSes' })
 //     }
 // })
+
+router.use(middlewares.checkUserAuthenticated);
 
 // http://localhost:3000/api/estudiantes
 router.get('/', (req, res) => {

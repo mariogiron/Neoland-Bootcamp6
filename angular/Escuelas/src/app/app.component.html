@@ -1,3 +1,9 @@
 <div class="container">
+  <div *ngIf="usuariosService.isUserLogged()">
+    <p>Ya estás dentro</p>
+    <button (click)="onLogout()">LogOUT</button>
+  </div>
+
+  <button [routerLink]="['/login']" *ngIf="!usuariosService.isUserLogged()">Login</button>
   <router-outlet></router-outlet>
 </div>

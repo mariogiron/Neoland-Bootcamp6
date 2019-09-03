@@ -53,7 +53,7 @@ router.post('/loginv2', async (req, res) => {
         if (user == null) return res.json({ error: 'Usuario y o contraseña erroneos (1)' });
         let same = bcrypt.compareSync(req.body.password, user.password);
         if (!same) return res.json({ error: 'Usuario y o contraseña erroneos (2)' });
-        res.json({ success: 'Usuario correcto' });
+        res.json({ token: createToken(user) })
     } catch (err) {
         res.json({ error: err })
     }

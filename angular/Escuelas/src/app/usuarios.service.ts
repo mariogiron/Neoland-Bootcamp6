@@ -16,6 +16,10 @@ export class UsuariosService {
     return this.http.post(`${this.baseUrl}/registro`, values).toPromise();
   }
 
+  login(values) {
+    return this.http.post(`${this.baseUrl}/loginv2`, values).toPromise();
+  }
+
   isUserLogged() {
     if (localStorage.getItem('user-token')) {
       return true;

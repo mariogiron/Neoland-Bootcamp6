@@ -1,3 +1,5 @@
+import { UsuariosService } from './../usuarios.service';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  formulario: FormGroup;
+
+  constructor(private usuariosService: UsuariosService) {
+    this.formulario = new FormGroup({
+      username: new FormControl(''),
+      password: new FormControl('')
+    })
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.usuariosService.login(this.formulario.value)
+      .then(response => {
+        if (response['token']) {
+          localStorage.setItem('user-token', response['token']);
+        } else {
+          alert(response['error'])
+        }
+      })
   }
 
 }

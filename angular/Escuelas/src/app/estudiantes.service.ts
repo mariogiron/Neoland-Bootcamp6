@@ -14,21 +14,21 @@ export class EstudiantesService {
   }
 
   getAll(): Promise<Alumno[]> {
-    let httOptions = {
-      headers: new HttpHeaders({
-        'Authentication': localStorage.getItem('user-token')
-      })
-    }
+    let httOptions = this.getHeaders();
     return this.http.get<Alumno[]>(this.baseUrl, httOptions).toPromise();
   }
 
   create(values): Promise<any> {
-    let httOptions = {
+    let httOptions = this.getHeaders();
+    return this.http.post<any>(this.baseUrl, values, httOptions).toPromise();
+  }
+
+  getHeaders() {
+    return {
       headers: new HttpHeaders({
         'Authentication': localStorage.getItem('user-token')
       })
     }
-    return this.http.post<any>(this.baseUrl, values, httOptions).toPromise();
   }
 
 }

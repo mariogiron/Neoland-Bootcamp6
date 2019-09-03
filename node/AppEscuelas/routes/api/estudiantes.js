@@ -3,6 +3,8 @@ let router = express.Router();
 let alumnoModel = require('../../models/alumnos');
 const middlewares = require('../middlewares');
 
+const { check, validationResult } = require('express-validator/check');
+
 // router.use((req, res, next) => {
 //     if (req.query.format === 'json') {
 //         next();
@@ -11,7 +13,7 @@ const middlewares = require('../middlewares');
 //     }
 // })
 
-router.use(middlewares.checkUserAuthenticated);
+// router.use(middlewares.checkUserAuthenticated);
 
 // http://localhost:3000/api/estudiantes
 router.get('/', (req, res) => {
@@ -27,7 +29,25 @@ router.get('/:estudianteId', (req, res) => {
         .catch(err => res.json(err));
 });
 
-router.post('/', (req, res) => {
+// Método de inserción de estudiantes
+// Definimos validaciones
+router.post('/', [
+    check('nombre', 'El campo nombre es requerido').exists(),
+    check('email', 'El campo email debe ser un mail válido').isEmail(),
+    check('edad', 'La edad debe ser mayor de 18 años').custom((value) => {
+        if (value > 18) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+], (req, res) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ error: errors.array() });
+    }
+
     alumnoModel.insert(req.body)
         .then(result => res.json(result))
         .catch(err => res.json(err));

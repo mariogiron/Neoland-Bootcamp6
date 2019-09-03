@@ -5,5 +5,6 @@
   </div>
 
   <button [routerLink]="['/login']" *ngIf="!usuariosService.isUserLogged()">Login</button>
+  <button [routerLink]="['/main', 'students']">Lista de Estudiantes</button>
   <router-outlet></router-outlet>
 </div>

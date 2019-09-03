@@ -1,6 +1,6 @@
 import { Alumno } from './models/alumno.model';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,21 @@ export class EstudiantesService {
   }
 
   getAll(): Promise<Alumno[]> {
-    return this.http.get<Alumno[]>(this.baseUrl).toPromise();
+    let httOptions = {
+      headers: new HttpHeaders({
+        'Authentication': localStorage.getItem('user-token')
+      })
+    }
+    return this.http.get<Alumno[]>(this.baseUrl, httOptions).toPromise();
   }
 
   create(values): Promise<any> {
-    return this.http.post<any>(this.baseUrl, values).toPromise();
+    let httOptions = {
+      headers: new HttpHeaders({
+        'Authentication': localStorage.getItem('user-token')
+      })
+    }
+    return this.http.post<any>(this.baseUrl, values, httOptions).toPromise();
   }
 
 }

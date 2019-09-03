@@ -63,7 +63,7 @@ const createToken = (pUser) => {
     const payload = {
         userId: pUser.id,
         createdAt: moment().unix(),
-        expiresAt: moment().add(5, 'minutes').unix()
+        expiresAt: moment().add(30, 'seconds').unix()
     }
     return jwt.encode(payload, process.env.SECRET_KEY);
 }

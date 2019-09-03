@@ -1,3 +1,4 @@
+import { LoginGuard } from './login.guard';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FormularioEstudiantesComponent } from './estudiantes/formulario-estudiantes/formulario-estudiantes.component';
@@ -7,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: 'main/students', component: ListaEstudiantesComponent },
+  { path: 'main/students', component: ListaEstudiantesComponent, canActivate: [LoginGuard] },
   { path: 'main/students/new', component: FormularioEstudiantesComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent }

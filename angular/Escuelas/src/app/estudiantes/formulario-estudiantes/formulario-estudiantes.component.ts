@@ -31,8 +31,11 @@ export class FormularioEstudiantesComponent implements OnInit {
     console.log(this.formNewAlumno.value);
     this.estudiantesService.create(this.formNewAlumno.value)
       .then(response => {
-        console.log(response);
-        this.router.navigate(['/main', 'students']);
+        if (response['error']) {
+          this.router.navigate(['/login']);
+        } else {
+          this.router.navigate(['/main', 'students']);
+        }
       })
       .catch(err => {
 

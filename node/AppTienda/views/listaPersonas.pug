@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1 Lista de Personas
+    table.table
+        tr
+            th ID
+            th Nombre Completo
+            th Nombre
+            th Apellidos
+            th Dirección
+        each pers in arrPersonas
+            tr
+                td= pers._id
+                td= pers.nombre_completo
+                td= pers.nombre
+                td= pers.apellidos
+                td= pers.direccion

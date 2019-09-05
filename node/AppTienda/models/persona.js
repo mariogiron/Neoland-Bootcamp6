@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 let personaSchema = new Schema({
     nombre: String,
     apellidos: String,
-    direccion: String
+    direccion: String,
+    producto: { type: Schema.Types.ObjectId, ref: 'Producto' },
+    compras: [{ type: Schema.Types.ObjectId, ref: 'Producto' }]
 });
 
 personaSchema.virtual('nombre_completo').get(function () {

@@ -8,4 +8,13 @@ let productoSchema = new Schema({
     activo: Boolean
 });
 
-module.exports = mongoose.model('producto', productoSchema);
+productoSchema.methods.mismoDepartamento = function (callback) {
+    this.model('Producto').find({ departamento: this.departamento }, callback)
+}
+
+productoSchema.statics.activos = function (estado, callback) {
+    this.model('Producto').find({ activo: estado }, callback)
+}
+
+module.exports = mongoose.model('Producto', productoSchema);
+

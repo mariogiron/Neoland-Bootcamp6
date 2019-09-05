@@ -9,6 +9,7 @@ block content
             th Nombre
             th Apellidos
             th Dirección
+            th Acciones
         each pers in arrPersonas
             tr
                 td= pers._id
@@ -16,3 +17,5 @@ block content
                 td= pers.nombre
                 td= pers.apellidos
                 td= pers.direccion
+                td
+                    a(href="/personas/"+pers._id) Ver

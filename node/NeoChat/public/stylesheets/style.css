@@ -1,0 +1,20 @@
+.chat {
+  background-color: oldlace;
+  padding: 10px 20px;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.mensajes {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mensajes li {
+  padding: 10px 10px;
+  font-size: 20px;
+}
+
+.envio {
+  margin-top: 10px;
+}

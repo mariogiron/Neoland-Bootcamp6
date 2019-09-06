@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .page-header
+    h1.animated.pulse.infinite.slower NeoChat
+    p#users
+  .chat
+    ul#mensajes.mensajes
+  .envio.row
+    .col-7
+      input#message.form-control(type="text", name="", placeholder="Mensaje a enviar")
+    .col-3
+      input#username.form-control(type="text", name="", placeholder="Nombre de usuario")
+    .col-2
+      button#btnSend.btn.btn-primary.btn-block Enviar
+  script.
+    let socket = io();
+
+    $('#btnSend').click(()=>{
+      let msg = $('#message').val();
+      let user = $('#username').val();
+
+      socket.emit('chatMessage', {
+        username: user,
+        message: msg
+      });
+
+    });
+
+    socket.on('chatMessage', (data)=>{
+      $('#mensajes').append(`<li><strong>${data.username}:</strong> ${data.message}</li>`);
+    })
+
+    socket.on('chatUsers', (data)=>{
+      $('#users').text(`Usuarios conectados: ${data}`);
+    })

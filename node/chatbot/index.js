@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const Telegraf = require('telegraf')
 const express = require('express')
+const googleTTS = require('google-tts-api');
 const expressApp = express()
 
 const nlu = require('./nlu');
@@ -39,7 +40,10 @@ bot.on('text', (ctx) => {
     nlu(ctx.message)
         .then(dialog)
         .then(respuesta => {
-            bot.telegram.sendMessage(ctx.from.id, respuesta);
+            googleTTS(respuesta, 'es', 1)
+                .then(url => {
+                    bot.telegram.sendAudio(ctx.from.id, url);
+                })
         })
 })
 

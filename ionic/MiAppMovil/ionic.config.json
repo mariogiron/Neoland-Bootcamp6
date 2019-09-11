@@ -1,5 +1,7 @@
 {
   "name": "MiAppMovil",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
